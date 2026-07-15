@@ -1,0 +1,114 @@
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Accent color */
+
+:root {
+  --accent: #00e5ff;
+}
+
+/* ---------- Dark Theme ---------- */
+
+body.dark {
+  --bg: #020617;
+  --section-bg: #0f172a;
+  --navbar: rgba(15, 23, 42, 0.85);
+
+  --text: #ffffff;
+  --text-secondary: #cbd5e1;
+
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.08);
+
+  --shadow: rgba(0, 229, 255, 0.45);
+}
+
+/* ---------- Light Theme ---------- */
+
+body.light {
+  --bg: #f8fafc;
+  --section-bg: #ffffff;
+  --navbar: rgba(255, 255, 255, 0.9);
+
+  --text: #1e293b;
+  --text-secondary: #475569;
+
+  --card-bg: #f1f5f9;
+  --border: #cbd5e1;
+
+  --shadow: rgba(0, 229, 255, 0.25);
+}
+
+/* ---------- Global ---------- */
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Sections */
+
+section {
+  background: var(--section-bg);
+  color: var(--text);
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Navbar */
+
+.navbar {
+  background: var(--navbar);
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+
+/* Cards */
+
+.card,
+.skill-card,
+.project-card,
+.certificate-card,
+.timeline-content,
+.info-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+
+  transition: all 0.3s ease;
+}
+
+/* Inputs */
+
+input,
+textarea {
+  background: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-secondary);
+}
+
+/* Links */
+
+a {
+  color: inherit;
+  transition: color 0.3s ease;
+}
