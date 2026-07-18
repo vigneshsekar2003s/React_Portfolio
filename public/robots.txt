@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://vignesh-livid-nu.vercel.app/sitemap.xml
