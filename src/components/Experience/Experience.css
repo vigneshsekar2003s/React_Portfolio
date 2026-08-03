@@ -2,7 +2,7 @@
   min-height: 100vh;
   background: var(--section-bg);
   color: var(--text);
-  padding: 100px 8%;
+  padding: 80px 20px;
   transition: all 0.3s ease;
 }
 
@@ -34,11 +34,13 @@
   align-items: flex-start;
   margin-bottom: 60px;
   position: relative;
+  width: 100%;
+  overflow: hidden;
 }
 
 .timeline-icon {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background: var(--accent);
   color: var(--bg);
   border-radius: 50%;
@@ -49,17 +51,21 @@
   flex-shrink: 0;
   z-index: 1;
   box-shadow: 0 0 15px var(--shadow);
+   min-width: 40px;
 }
 
 .timeline-content {
-  margin-left: 30px;
+  margin-left: 15px;
   background: var(--card-bg);
   border: 1px solid var(--border);
-  padding: 25px;
+  padding: 18px;
   border-radius: 16px;
   flex: 1;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
+  width: calc(100% - 60px);
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .timeline-content:hover {
