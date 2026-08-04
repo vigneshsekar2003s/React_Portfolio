@@ -14,12 +14,10 @@ import emailjs from "@emailjs/browser";
 function Contact() {
   const form = useRef();
 
-  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState("");
 
   const sendEmail = (e) => {
     e.preventDefault();
-
-    setLoading(true);
 
     emailjs
       .sendForm(
@@ -28,20 +26,31 @@ function Contact() {
         form.current,
         "MI9FWtC8mRssQXekj"
       )
+  
       .then(() => {
-        form.current.reset();
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("EmailJS Error:", error);
-        setLoading(false);
-      });
+      form.current.reset();
+      setSuccess("Message sent successfully!");
+
+      setTimeout(() => {
+        setSuccess("");
+      }, 3000);
+    })
+    .catch((error) => {
+      console.error("EmailJS Error:", error);
+      setSuccess("Failed to send message.");
+    });
+
   };
 
   return (
-    <section className="contact" id="contact">
+    <section
+      className="contact"
+      id="contact"
+      aria-labelledby="contact-heading"
+    >
       <div className="contact-container">
         <motion.h2
+          id="contact-heading"
           initial={{ opacity: 0, y: -40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -63,22 +72,22 @@ function Contact() {
             <h3>Let's Connect 👋</h3>
 
             <p>
-              I'm always interested in internships, full-time roles, and
-              exciting web development projects.
+              I'm always interested in Internships, Full-time roles, and
+              exciting projects.
             </p>
 
             <div className="info-card">
-              <FaEnvelope />
+              <FaEnvelope aria-hidden="true" />
               <span>vigneshsekar2003s@gmail.com</span>
             </div>
 
             <div className="info-card">
-              <FaPhoneAlt />
+              <FaPhoneAlt aria-hidden="true" />
               <span>+91 9363922536</span>
             </div>
 
             <div className="info-card">
-              <FaMapMarkerAlt />
+              <FaMapMarkerAlt aria-hidden="true" />
               <span>Tamil Nadu, India</span>
             </div>
 
@@ -86,19 +95,19 @@ function Contact() {
               <a
                 href="https://github.com/vigneshsekar2003s"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 aria-label="GitHub"
               >
-                <FaGithub />
+                <FaGithub aria-hidden="true" />
               </a>
 
               <a
                 href="https://www.linkedin.com/in/vignesh-sekar-1526bb26a"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 aria-label="LinkedIn"
               >
-                <FaLinkedin />
+                <FaLinkedin aria-hidden="true" />
               </a>
             </div>
           </motion.div>
@@ -118,6 +127,7 @@ function Contact() {
               type="text"
               name="from_name"
               placeholder="Your Name"
+              autoComplete="name"
               required
             />
 
@@ -125,6 +135,7 @@ function Contact() {
               type="email"
               name="from_email"
               placeholder="Your Email"
+              autoComplete="email"
               required
             />
 
@@ -137,15 +148,18 @@ function Contact() {
 
             <textarea
               name="message"
-              rows="6"
+              rows={6}
               placeholder="Your Message"
               required
             />
 
             <button type="submit">
-            <FaPaperPlane />
+            <FaPaperPlane aria-hidden="true" />
             Send Message
-           </button>
+          </button>
+
+          {success && <p className="success-message">{success}</p>}
+
           </motion.form>
         </div>
       </div>

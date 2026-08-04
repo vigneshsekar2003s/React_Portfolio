@@ -27,15 +27,20 @@ const skills = [
 
 function Skills() {
   return (
-    <section className="skills" id="skills">
-      <motion.div
+   
+    <section
+      className="skills"
+      id="skills"
+      aria-labelledby="skills-heading"
+    >
+        <motion.div
         className="skills-container"
         initial={{ opacity: 0, y: 80 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true, amount: 0.2 }}
       >
-        <h2>My Skills</h2>
+        <h2 id="skills-heading">My Skills</h2>
 
         <div className="skills-grid">
         {skills.map((skill, index) => (
@@ -54,7 +59,9 @@ function Skills() {
       y: -8,
     }}
   >
-    <div className="skill-icon">{skill.icon}</div>
+    <div className="skill-icon" aria-hidden="true">
+      {skill.icon}
+    </div>
     <h3>{skill.name}</h3>
   </motion.div>
 ))}

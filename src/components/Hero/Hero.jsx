@@ -75,19 +75,24 @@ function Hero() {
       </p>
 
         <div className="hero-buttons">
-          <a href="/ATS_Vignesh.pdf" download>
+            <a
+            href="/ATS_SDE_Resume.pdf"
+            download="Vignesh_Resume.pdf"
+            aria-label="Download Resume"
+          >
             <FaDownload />
             Resume
           </a>
 
-          <Link
+            <Link
             to="contact"
-            smooth={true}
+            spy
+            smooth
             duration={600}
             offset={-70}
             className="hire-btn"
           >
-            Hire Me
+            💼 Hire Me
           </Link>
 
           <a
@@ -119,11 +124,12 @@ function Hero() {
         transition={{ duration: 0.8 }}
       >
         <div className="image-circle">
-          <img
-            src={Profile}
-            alt="Vignesh Sekar"
-            loading="eager"
-          />
+        <img
+          src={Profile}
+          alt="Portrait of Vignesh Sekar"
+          loading="eager"
+          decoding="async"
+        />
         </div>
       </motion.div>
     </section>

@@ -29,14 +29,14 @@
 }
 
 .hero-left h2 {
-  color: #38bdf8;
-  height: 45px;
+  color: var(--accent);
+  min-height: 45px;
 }
 
 .description {
   max-width: 550px;
   line-height: 1.8;
-  color:  #cbd5e1;
+  color: var(--text-secondary);
   margin: 25px 0;
 }
 
@@ -47,20 +47,25 @@
 
 .hero-buttons a {
   text-decoration: none;
-  color: white;
-  background: cyan;
-  color: black;
+  background: var(--accent);
+  color: var(--bg);
   padding: 14px 25px;
   border-radius: 30px;
   display: flex;
   gap: 10px;
   align-items: center;
-  transition: 0.3s;
   font-weight: 600;
+
+    transition:
+    transform .3s ease,
+    box-shadow .3s ease,
+    background .3s ease,
+    color .3s ease;
 }
 
 .hero-buttons a:hover {
   transform: translateY(-5px);
+  box-shadow: 0 0 20px var(--shadow);
 }
 
 .hero-right {
@@ -73,7 +78,7 @@
   width: 380px;
   height: 380px;
   border-radius: 50%;
-  border: 5px solid cyan;
+  border: 5px solid var(--accent);
   overflow: hidden;
   animation: glow 2.5s infinite alternate;
 }
@@ -85,12 +90,13 @@
 }
 
 @keyframes glow {
-  from {
-    box-shadow: 0 0 20px cyan;
-  }
-  to {
-    box-shadow: 0 0 60px cyan;
-  }
+from {
+  box-shadow: 0 0 20px var(--accent);
+}
+
+to {
+  box-shadow: 0 0 60px var(--accent);
+}
 }
 
 .floating-icons svg {
@@ -136,8 +142,8 @@
   .hero {
     flex-direction: column-reverse;
     text-align: center;
-    padding: 90px 20px 50px;
-    gap: 40px;
+    padding: 90px 24px 60px;
+    gap: 30px;
   }
 
    .hero-left {
@@ -146,12 +152,13 @@
   }
 
   .hero-left h1 {
-    font-size: 46px;
-    line-height: 1.15;
+    font-size: 42px;
+    line-height: 1.2;
   }
 
   .hero-left h2 {
-    font-size: 28px;
+    font-size: 24px;
+    min-height:40px;
   }
 
     .description {
@@ -159,8 +166,8 @@
     width: 100%;
     margin: 20px auto;
     padding: 0 6px;
-    font-size: 17px;
-    line-height: 1.8;
+    font-size: 16px;
+    line-height: 1.7;
     text-align: center;
     word-break: normal;
     overflow-wrap: break-word;
@@ -168,8 +175,8 @@
 
 
   .image-circle {
-    width: 260px;
-    height: 260px;
+      width: clamp(200px, 60vw, 230px);
+      height: clamp(200px, 60vw, 230px);
   }
 
   .hero-buttons {
@@ -177,6 +184,11 @@
     flex-wrap: wrap;
     gap: 15px;
   }
+
+  .floating-icons{
+    display:none;
+}
+
 }
 
 .hero-tag {
@@ -199,10 +211,32 @@
   border-radius: 30px;
   cursor: pointer;
   font-weight: 600;
-  transition: .3s;
+  
+  transition:
+  transform .3s ease,
+  box-shadow .3s ease,
+  background .3s ease,
+  color .3s ease;
 }
 
 .hire-btn:hover {
   background: var(--accent);
   color: var(--bg);
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px var(--shadow);
+}
+
+@media (max-width:480px){
+
+.hero-buttons{
+    flex-direction:column;
+    align-items:center;
+}
+
+.hero-buttons a,
+.hire-btn{
+    width:220px;
+    justify-content:center;
+}
+
 }

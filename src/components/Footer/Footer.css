@@ -3,7 +3,11 @@
   color: var(--text);
   padding: 50px 8%;
   text-align: center;
-  transition: all 0.3s ease;
+  width: 100%;
+  
+  transition:
+  background .3s ease,
+  color .3s ease;
 }
 
 .footer-container h2 {
@@ -27,7 +31,7 @@
 .footer-links a {
   color: var(--text);
   text-decoration: none;
-  transition: 0.3s ease;
+  transition: color .3s ease;
 }
 
 .footer-links a:hover {
@@ -52,7 +56,13 @@
   align-items: center;
   color: var(--accent);
   font-size: 22px;
-  transition: all 0.3s ease;
+  
+  transition:
+  transform .3s ease,
+  background .3s ease,
+  color .3s ease,
+  box-shadow .3s ease,
+  border-color .3s ease;
 }
 
 .footer-social a:hover {
@@ -72,7 +82,12 @@
   color: var(--bg);
   font-size: 22px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  
+  transition:
+  transform .3s ease,
+  box-shadow .3s ease,
+  background .3s ease,
+  color .3s ease;
 }
 
 .top-btn:hover {
@@ -87,6 +102,11 @@
 }
 
 @media (max-width: 768px) {
+
+  .footer{
+    padding:50px 20px;
+}
+
   .footer-links {
     gap: 15px;
   }

@@ -17,6 +17,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 30px;
+  width: 100%;
 }
 
 .certificate-card {
@@ -25,7 +26,14 @@
   border-radius: 20px;
   overflow: hidden;
   backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  width: 100%;
+  min-width: 0;
+
+    transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
 }
 
 .certificate-card:hover {
@@ -66,16 +74,20 @@
   align-items: center;
   gap: 8px;
   font-weight: 600;
-  transition: all 0.3s ease;
+  
+   transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .certificate-content a:hover {
   color: var(--text);
+  transform: translateX(4px);
 }
 
 @media (max-width: 768px) {
   .certificates {
-    padding: 80px 6%;
+    padding: 80px 20px;
   }
 
   .certificates-container h2 {

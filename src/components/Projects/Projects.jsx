@@ -1,6 +1,6 @@
 import "./Projects.css";
 import { motion } from "framer-motion";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import ExpenseTracker from "../../assets/projects/Expense-Tracker.png";
 import CRM from "../../assets/projects/CRM_Project.png";
 import schedulingApp from "../../assets/projects/ST_Scheduling.png";
@@ -34,7 +34,11 @@ const projects = [
 
 function Projects() {
   return (
-    <section className="projects" id="projects">
+    <section
+      className="projects"
+      id="projects"
+      aria-labelledby="projects-heading"
+    >
       <div className="projects-container">
         <motion.h2
           initial={{ opacity: 0, y: -40 }}
@@ -58,7 +62,12 @@ function Projects() {
               viewport={{ once: true }}
               whileHover={{ y: -10 }}
             >
-              <img src={project.image} alt={project.title} />
+              <img
+                src={project.image}
+                alt={`${project.title} project screenshot`}
+                loading="lazy"
+                decoding="async"
+              />
 
               <div className="project-content">
                 <h3>{project.title}</h3>
@@ -72,12 +81,13 @@ function Projects() {
                 </div>
 
                 <div className="project-links">
-                  <a
+                 <a
                     href={project.github}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
+                    aria-label={`View ${project.title} on GitHub`}
                   >
-                    <FaGithub /> GitHub
+                    <FaGithub aria-hidden="true" /> GitHub
                   </a>
                 </div>
               </div>

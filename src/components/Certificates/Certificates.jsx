@@ -12,29 +12,34 @@ const certificates = [
     title: "Web Development Internship",
     image: WebDevelopment,
     issuer: "Krutanic Solutions",
-    link: "#",
+    link: WebDevelopment,
   },
 
   {
     title: "Spoken Tutorial - CSS Training",
     image: SpokenTutorial,
     issuer: "Spoken Tutorial Project, IIT Bombay",
-    link: "#",
+    link: SpokenTutorial,
   },
   
   {
     title: "National Conference on Advanced Science",
     image: NationalConference,
     issuer: "INFO Institute of Engineering",
-    link: "#",
+    link: NationalConference,
   },
 ];
 
 function Certificates() {
   return (
-    <section className="certificates" id="certificates">
+              <section
+            className="certificates"
+            id="certificates"
+            aria-labelledby="certificates-heading"
+            >
       <div className="certificates-container">
         <motion.h2
+          id="certificates-heading"
           initial={{ opacity: 0, y: -40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -59,10 +64,11 @@ function Certificates() {
                 scale: 1.02,
               }}
             >
-              <img
+                <img
                 src={certificate.image}
-                alt={certificate.title}
+                alt={`${certificate.title} certificate`}
                 loading="lazy"
+                decoding="async"
               />
 
               <div className="certificate-content">
@@ -70,13 +76,14 @@ function Certificates() {
 
                 <p>{certificate.issuer}</p>
 
-                <a
-                  href={certificate.link}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  View Certificate <FaExternalLinkAlt />
-                </a>
+               <a
+                href={certificate.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`View ${certificate.title}`}
+              >
+                View Certificate <FaExternalLinkAlt aria-hidden="true" />
+              </a>
               </div>
             </motion.div>
           ))}

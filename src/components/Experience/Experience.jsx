@@ -1,10 +1,11 @@
+import React from "react";
 import "./Experience.css";
 import { motion } from "framer-motion";
-import { FaBriefcase, FaGraduationCap } from "react-icons/fa";
+import { FaBriefcase } from "react-icons/fa";
 
 const experiences = [
   {
-    icon: <FaBriefcase />,
+    icon: <FaBriefcase aria-hidden="true" />,
     title: "Web Development Intern",
     company: "Krutanic Solutions",
     duration: "Mar 2025 - Jun 2025",
@@ -15,9 +16,14 @@ const experiences = [
 
 function Experience() {
   return (
-    <section className="experience" id="experience">
+    <section
+      className="experience"
+      id="experience"
+      aria-labelledby="experience-heading"
+    >
       <div className="experience-container">
         <motion.h2
+          id="experience-heading"
           initial={{ opacity: 0, y: -40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -28,7 +34,7 @@ function Experience() {
         <div className="timeline">
           {experiences.map((item, index) => (
             <motion.div
-              key={index}
+              key={item.title}
               className="timeline-item"
               initial={{ opacity: 0, x: index % 2 === 0 ? -80 : 80 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -39,7 +45,9 @@ function Experience() {
               viewport={{ once: true }}
             >
               <div className="timeline-icon">
-                {item.icon}
+                {React.cloneElement(item.icon, {
+                  "aria-hidden": true,
+                })}
               </div>
 
               <div className="timeline-content">

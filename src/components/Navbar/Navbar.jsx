@@ -25,6 +25,9 @@ function Navbar() {
     "contact",
   ];
 
+  const formatLabel = (text) =>
+      text.charAt(0).toUpperCase() + text.slice(1);
+
   return (
     <motion.nav
       className="navbar"
@@ -33,7 +36,7 @@ function Navbar() {
       transition={{ duration: 0.6 }}
     >
       {/* Logo */}
-      <div className="logo">PORTFOLIO</div>
+      <h1 className="logo">PORTFOLIO</h1>
 
       {/* Navigation Links */}
       <ul className={menu ? "nav-links active" : "nav-links"}>
@@ -42,13 +45,13 @@ function Navbar() {
             <Link
               activeClass="active"
               to={item}
-              spy={true}
-              smooth={true}
+              spy
+              smooth
               duration={500}
               offset={-70}
               onClick={() => setMenu(false)}
             >
-              {item.charAt(0).toUpperCase() + item.slice(1)}
+              {formatLabel(item)}
             </Link>
           </li>
         ))}
@@ -64,9 +67,15 @@ function Navbar() {
       </button>
 
       {/* Mobile Menu */}
-      <div className="menu-icon" onClick={() => setMenu(!menu)}>
-        {menu ? <FaTimes /> : <FaBars />}
-      </div>
+      <button
+      className="menu-icon"
+      onClick={() => setMenu(!menu)}
+      aria-label={menu ? "Close menu" : "Open menu"}
+      aria-expanded={menu}
+      type="button"
+    >
+      {menu ? <FaTimes /> : <FaBars />}
+    </button>
     </motion.nav>
   );
 }
