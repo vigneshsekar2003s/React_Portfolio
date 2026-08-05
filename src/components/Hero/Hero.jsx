@@ -14,7 +14,7 @@ import {
   FaJs,
 } from "react-icons/fa";
 
-import Profile from "../../assets/image/Profile.png";
+import Profile from "../../assets/image/Profile (1).png";
 
 function Hero() {
   const typedRef = useRef(null);
