@@ -2,7 +2,7 @@ import "./Certificates.css";
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
-import WebDevelopment from "../../assets/certificates/Training_Certificate.jpg";
+import WebDevelopment from "../../assets/certificates/Training_Certificate (1).jpg";
 import SpokenTutorial from "../../assets/certificates/CSS_Certificate.png";
 import NationalConference from "../../assets/certificates/Conference_Certificate.png";
 
