@@ -6,10 +6,13 @@ import "./index.css";
 
 import ThemeProvider from "./context/ThemeContext";
 
+import { Analytics } from "@vercel/analytics/react";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThemeProvider>
       <App />
+      <Analytics />
     </ThemeProvider>
   </React.StrictMode>
 );
