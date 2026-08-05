@@ -1,9 +1,9 @@
 import "./Projects.css";
 import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
-import ExpenseTracker from "../../assets/projects/Expense-Tracker.png";
-import CRM from "../../assets/projects/CRM_Project.png";
-import schedulingApp from "../../assets/projects/ST_Scheduling.png";
+import ExpenseTracker from "../../assets/projects/Expense-Tracker.webp";
+import CRM from "../../assets/projects/CRM_Project.webp";
+import schedulingApp from "../../assets/projects/ST_Scheduling.webp";
 
 const projects = [
   {

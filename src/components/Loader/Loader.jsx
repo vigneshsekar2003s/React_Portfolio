@@ -1,7 +1,6 @@
 import "./Loader.css";
 import { motion } from "framer-motion";
-import Icon2 from "../../assets/image/Icon2.jpeg";
-// import VSLogo from "../../assets/image/VS-Logo.jpeg";
+import Icon2 from "../../assets/image/Icon2.webp";
 
 function Loader() {
   return (
@@ -9,8 +8,7 @@ function Loader() {
 
       {/* VS Logo */}
       <motion.img
-        // src={VSLogo}
-        // alt="VS Logo"
+    
         src={Icon2}
         alt="Icon2"
         className="loader-logo"
