@@ -1,63 +1,59 @@
 import "./Projects.css";
-import { motion } from "framer-motion";
-import { memo, useMemo } from "react";
+import { memo } from "react";
 import { FaGithub } from "react-icons/fa";
 
 import ExpenseTracker from "../../assets/projects/Expense-Tracker.webp";
 import CRM from "../../assets/projects/CRM_Project.webp";
 import schedulingApp from "../../assets/projects/ST_Scheduling.webp";
 
-function Projects() {
-  const projects = useMemo(
-    () => [
-      {
-        title: "Smart-Time Scheduling App",
-        image: schedulingApp,
-        description:
-          "A responsive time scheduling application built with React and Framer Motion.",
-        technologies: [
-          "React",
-          "Tailwind CSS",
-          "MongoDB",
-          "Express.js",
-          "Framer Motion",
-        ],
-        github: "https://github.com/yourusername/scheduling-app",
-      },
-      {
-        title: "Expense Tracker App",
-        image: ExpenseTracker,
-        description:
-          "Expense tracking application with budgeting features.",
-        technologies: [
-          "React",
-          "MongoDB",
-          "Node.js",
-          "Express.js",
-          "REST APIs",
-        ],
-        github:
-          "https://github.com/vigneshsekar2003s/Frontend_ExpenseApp",
-      },
-      {
-        title: "Customer-Relationship Management App",
-        image: CRM,
-        description:
-          "CRM application for managing customer interactions and relationships.",
-        technologies: [
-          "React",
-          "Node.js",
-          "MongoDB",
-          "Tailwind CSS",
-          "REST APIs",
-        ],
-        github:
-          "https://github.com/vigneshsekar2003s/CRM_Frontend",
-      },
+const projects = [
+  {
+    title: "Smart-Time Scheduling App",
+    image: schedulingApp,
+    description:
+      "A responsive time scheduling application built with React and Framer Motion.",
+    technologies: [
+      "React",
+      "Tailwind CSS",
+      "MongoDB",
+      "Express.js",
+      "Framer Motion",
     ],
-    []
-  );
+    github: "https://github.com/yourusername/scheduling-app",
+  },
+  {
+    title: "Expense Tracker App",
+    image: ExpenseTracker,
+    description:
+      "Expense tracking application with budgeting features.",
+    technologies: [
+      "React",
+      "MongoDB",
+      "Node.js",
+      "Express.js",
+      "REST APIs",
+    ],
+    github:
+      "https://github.com/vigneshsekar2003s/Frontend_ExpenseApp",
+  },
+  {
+    title: "Customer-Relationship Management App",
+    image: CRM,
+    description:
+      "CRM application for managing customer interactions and relationships.",
+    technologies: [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Tailwind CSS",
+      "REST APIs",
+    ],
+    github:
+      "https://github.com/vigneshsekar2003s/CRM_Frontend",
+  },
+];
 
+function Projects() {
   return (
     <section
       className="projects"
@@ -65,29 +61,15 @@ function Projects() {
       aria-labelledby="projects-heading"
     >
       <div className="projects-container">
-        <motion.h2
-          id="projects-heading"
-          initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          viewport={{ once: true }}
-        >
+        <h2 id="projects-heading">
           My Projects
-        </motion.h2>
+        </h2>
 
         <div className="projects-grid">
-          {projects.map((project, index) => (
-            <motion.div
+          {projects.map((project) => (
+            <div
               key={project.title}
               className="project-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                delay: index * 0.1,
-                duration: 0.4,
-              }}
-              viewport={{ once: true }}
-              whileHover={{ y: -6 }}
             >
               <img
                 src={project.image}
@@ -116,12 +98,11 @@ function Projects() {
                     rel="noopener noreferrer"
                     aria-label={`View ${project.title} on GitHub`}
                   >
-                    <FaGithub aria-hidden="true" />
-                    {" "}GitHub
+                    <FaGithub aria-hidden="true" /> GitHub
                   </a>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

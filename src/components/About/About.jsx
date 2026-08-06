@@ -1,6 +1,5 @@
 import "./About.css";
 import { memo } from "react";
-import { motion } from "framer-motion";
 import {
   FaUserGraduate,
   FaLaptopCode,
@@ -14,13 +13,7 @@ function About() {
       id="about"
       aria-labelledby="about-heading"
     >
-      <motion.div
-        className="about-content"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-      >
+      <div className="about-content">
         <h2 id="about-heading">About Me</h2>
 
         <p>
@@ -61,7 +54,7 @@ function About() {
             </p>
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

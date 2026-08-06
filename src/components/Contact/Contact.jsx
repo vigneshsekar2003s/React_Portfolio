@@ -9,16 +9,24 @@ import {
   FaLinkedin,
   FaPaperPlane,
 } from "react-icons/fa";
-import emailjs from "@emailjs/browser";
 
 function Contact() {
   const form = useRef(null);
+
   const [success, setSuccess] = useState("");
+  const [sending, setSending] = useState(false);
 
   const sendEmail = async (e) => {
     e.preventDefault();
 
+    if (sending) return;
+
+    setSending(true);
+
     try {
+      // Lazy load EmailJS only when needed
+      const emailjs = (await import("@emailjs/browser")).default;
+
       await emailjs.sendForm(
         "service_h8i0z6c",
         "template_9nfpjs3",
@@ -28,13 +36,11 @@ function Contact() {
 
       form.current.reset();
       setSuccess("Message sent successfully!");
-
-      setTimeout(() => {
-        setSuccess("");
-      }, 3000);
     } catch (error) {
       console.error(error);
       setSuccess("Failed to send message.");
+    } finally {
+      setSending(false);
 
       setTimeout(() => {
         setSuccess("");
@@ -149,9 +155,12 @@ function Contact() {
               required
             />
 
-            <button type="submit">
+            <button
+              type="submit"
+              disabled={sending}
+            >
               <FaPaperPlane aria-hidden="true" />
-              Send Message
+              {sending ? "Sending..." : "Send Message"}
             </button>
 
             {success && (

@@ -115,3 +115,29 @@
     font-size: 15px;
   }
 }
+
+.certificates-container {
+  animation: fadeUp .6s ease both;
+}
+
+.certificate-card {
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.certificate-card:hover {
+  transform: translateY(-6px) scale(1.01);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

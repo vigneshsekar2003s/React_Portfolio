@@ -1,9 +1,9 @@
 import "./Counter.css";
-import { motion } from "framer-motion";
 import { useEffect, useRef, useState, memo } from "react";
 
 const CounterItem = memo(function CounterItem({ end, suffix, title }) {
   const [count, setCount] = useState(0);
+
   const ref = useRef(null);
   const started = useRef(false);
 
@@ -14,16 +14,21 @@ const CounterItem = memo(function CounterItem({ end, suffix, title }) {
 
         started.current = true;
 
-        const duration = 1200; // reduced from 2000ms
+        const duration = 1200;
         const startTime = performance.now();
 
         function animate(currentTime) {
-          const progress = Math.min((currentTime - startTime) / duration, 1);
+          const progress = Math.min(
+            (currentTime - startTime) / duration,
+            1
+          );
 
           setCount(Math.floor(progress * end));
 
           if (progress < 1) {
             requestAnimationFrame(animate);
+          } else {
+            setCount(end);
           }
         }
 
@@ -34,36 +39,47 @@ const CounterItem = memo(function CounterItem({ end, suffix, title }) {
       }
     );
 
-    if (ref.current) observer.observe(ref.current);
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
 
     return () => observer.disconnect();
   }, [end]);
 
   return (
-    <motion.div
-      ref={ref}
-      className="counter-card"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
-      viewport={{ once: true }}
-    >
+    <div ref={ref} className="counter-card">
       <h2>
         {count}
         {suffix}
       </h2>
 
       <p>{title}</p>
-    </motion.div>
+    </div>
   );
 });
 
 function Counter() {
   const counters = [
-    { end: 10, suffix: "+", title: "Projects" },
-    { end: 8, suffix: "+", title: "Certificates" },
-    { end: 16, suffix: "+", title: "Technologies" },
-    { end: 2, suffix: "", title: "Internships" },
+    {
+      end: 10,
+      suffix: "+",
+      title: "Projects",
+    },
+    {
+      end: 8,
+      suffix: "+",
+      title: "Certificates",
+    },
+    {
+      end: 16,
+      suffix: "+",
+      title: "Technologies",
+    },
+    {
+      end: 2,
+      suffix: "",
+      title: "Internships",
+    },
   ];
 
   return (

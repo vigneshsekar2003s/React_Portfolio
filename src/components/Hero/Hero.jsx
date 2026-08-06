@@ -1,6 +1,6 @@
 import "./Hero.css";
+import { memo, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
 import { Link } from "react-scroll";
 
 import {
@@ -28,9 +28,12 @@ function Hero() {
 
   useEffect(() => {
     let typed;
+    let mounted = true;
 
-    const loadTyped = async () => {
+    async function initTyped() {
       const Typed = (await import("typed.js")).default;
+
+      if (!mounted || !typedRef.current) return;
 
       typed = new Typed(typedRef.current, {
         strings: roles,
@@ -41,20 +44,24 @@ function Hero() {
         showCursor: true,
         cursorChar: "|",
       });
-    };
+    }
 
-    loadTyped();
+    initTyped();
 
     return () => {
-      if (typed) typed.destroy();
+      mounted = false;
+      typed?.destroy();
     };
   }, []);
 
   return (
-    <section className="hero" id="home">
+    <section
+      className="hero"
+      id="home"
+      aria-labelledby="hero-heading"
+    >
       {/* Floating Icons */}
-
-      <div className="floating-icons">
+      <div className="floating-icons" aria-hidden="true">
         <FaReact className="react" />
         <FaHtml5 className="html" />
         <FaCss3Alt className="css" />
@@ -62,18 +69,20 @@ function Hero() {
       </div>
 
       {/* Left */}
-
       <motion.div
         className="hero-left"
-        initial={{ x: -80, opacity: 0 }}
+        initial={{ x: -60, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
+        transition={{
+          duration: 0.45,
+          ease: "easeOut",
+        }}
       >
         <span className="hero-tag">
           👋 Welcome to my Portfolio
         </span>
 
-        <h1>
+        <h1 id="hero-heading">
           I'm <span>Vignesh Sekar</span>
         </h1>
 
@@ -93,7 +102,7 @@ function Hero() {
             download="Vignesh_Resume.pdf"
             aria-label="Download Resume"
           >
-            <FaDownload />
+            <FaDownload aria-hidden="true" />
             Resume
           </a>
 
@@ -114,7 +123,7 @@ function Hero() {
             rel="noopener noreferrer"
             aria-label="GitHub"
           >
-            <FaGithub />
+            <FaGithub aria-hidden="true" />
           </a>
 
           <a
@@ -123,18 +132,20 @@ function Hero() {
             rel="noopener noreferrer"
             aria-label="LinkedIn"
           >
-            <FaLinkedin />
+            <FaLinkedin aria-hidden="true" />
           </a>
         </div>
       </motion.div>
 
       {/* Right */}
-
       <motion.div
         className="hero-right"
-        initial={{ x: 80, opacity: 0 }}
+        initial={{ x: 60, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
+        transition={{
+          duration: 0.45,
+          ease: "easeOut",
+        }}
       >
         <div className="image-circle">
           <img
@@ -152,4 +163,4 @@ function Hero() {
   );
 }
 
-export default Hero;
+export default memo(Hero);

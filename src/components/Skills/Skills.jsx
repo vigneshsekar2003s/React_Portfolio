@@ -1,6 +1,5 @@
 import "./Skills.css";
-import { memo, useMemo } from "react";
-import { motion } from "framer-motion";
+import { memo } from "react";
 
 import {
   SiHtml5,
@@ -18,54 +17,34 @@ import {
   FaCode,
 } from "react-icons/fa";
 
-function Skills() {
-  const skills = useMemo(
-    () => [
-      { icon: <SiHtml5 />, name: "HTML5" },
-      { icon: <SiCss />, name: "CSS3" },
-      { icon: <SiJavascript />, name: "JavaScript" },
-      { icon: <SiReact />, name: "React" },
-      { icon: <SiNodedotjs />, name: "Node.js" },
-      { icon: <FaGitAlt />, name: "Git" },
-      { icon: <FaGithub />, name: "GitHub" },
-      { icon: <FaCode />, name: "C" },
-      { icon: <FaJava />, name: "Java" },
-      { icon: <FaPython />, name: "Python" },
-    ],
-    []
-  );
+const skills = [
+  { icon: <SiHtml5 />, name: "HTML5" },
+  { icon: <SiCss />, name: "CSS3" },
+  { icon: <SiJavascript />, name: "JavaScript" },
+  { icon: <SiReact />, name: "React" },
+  { icon: <SiNodedotjs />, name: "Node.js" },
+  { icon: <FaGitAlt />, name: "Git" },
+  { icon: <FaGithub />, name: "GitHub" },
+  { icon: <FaCode />, name: "C" },
+  { icon: <FaJava />, name: "Java" },
+  { icon: <FaPython />, name: "Python" },
+];
 
+function Skills() {
   return (
     <section
       className="skills"
       id="skills"
       aria-labelledby="skills-heading"
     >
-      <motion.div
-        className="skills-container"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true, amount: 0.2 }}
-      >
+      <div className="skills-container">
         <h2 id="skills-heading">My Skills</h2>
 
         <div className="skills-grid">
-          {skills.map((skill, index) => (
-            <motion.div
+          {skills.map((skill) => (
+            <div
               key={skill.name}
               className="skill-card"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.3,
-                delay: index * 0.05,
-              }}
-              viewport={{ once: true }}
-              whileHover={{
-                scale: 1.03,
-                y: -5,
-              }}
             >
               <div
                 className="skill-icon"
@@ -75,10 +54,10 @@ function Skills() {
               </div>
 
               <h3>{skill.name}</h3>
-            </motion.div>
+            </div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

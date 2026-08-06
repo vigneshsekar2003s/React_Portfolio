@@ -1,14 +1,17 @@
 import { useEffect, useState, lazy, Suspense } from "react";
 
 import Loader from "./components/Loader/Loader";
-import ParticlesBackground from "./components/ParticlesBackground/ParticlesBackground";
 import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
 import Navbar from "./components/Navbar/Navbar";
 
-// Load Hero immediately
+
 import Hero from "./components/Hero/Hero";
 
-// Lazy load the remaining sections
+// Lazy load heavy components
+const ParticlesBackground = lazy(() =>
+  import("./components/ParticlesBackground/ParticlesBackground")
+);
+
 const Counter = lazy(() => import("./components/Counter/Counter"));
 const About = lazy(() => import("./components/About/About"));
 const Skills = lazy(() => import("./components/Skills/Skills"));
@@ -24,7 +27,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 500); 
+    }, 500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -35,14 +38,18 @@ function App() {
 
   return (
     <>
-      <ParticlesBackground />
+      <Suspense fallback={null}>
+        <ParticlesBackground />
+      </Suspense>
+
       <ScrollProgress />
+
       <Navbar />
 
       <main>
         <Hero />
 
-        <Suspense fallback={<div />}>
+        <Suspense fallback={null}>
           <Counter />
           <About />
           <Skills />

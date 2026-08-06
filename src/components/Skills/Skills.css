@@ -86,3 +86,29 @@
     font-size: 20px;
   }
 }
+
+.skills-container {
+  animation: fadeUp 0.6s ease both;
+}
+
+.skill-card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px) scale(1.03);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
