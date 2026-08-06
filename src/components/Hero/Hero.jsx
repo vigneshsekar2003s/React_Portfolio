@@ -1,6 +1,5 @@
 import "./Hero.css";
 import { motion } from "framer-motion";
-import Typed from "typed.js";
 import { useEffect, useRef } from "react";
 import { Link } from "react-scroll";
 
@@ -16,27 +15,39 @@ import {
 
 import Profile from "../../assets/image/Profile.webp";
 
+const roles = [
+  "Frontend Developer",
+  "React Developer",
+  "UI Designer",
+  "Problem Solver",
+  "Full Stack Developer",
+];
+
 function Hero() {
   const typedRef = useRef(null);
 
   useEffect(() => {
-    const typed = new Typed(typedRef.current, {
-      strings: [
-        "Frontend Developer",
-        "React Developer",
-        "UI Designer",
-        "Problem Solver",
-        "Full Stack Developer",
-      ],
-      typeSpeed: 70,
-      backSpeed: 40,
-      backDelay: 1500,
-      loop: true,
-      showCursor: true,
-      cursorChar: "|",
-    });
+    let typed;
 
-    return () => typed.destroy();
+    const loadTyped = async () => {
+      const Typed = (await import("typed.js")).default;
+
+      typed = new Typed(typedRef.current, {
+        strings: roles,
+        typeSpeed: 70,
+        backSpeed: 40,
+        backDelay: 1500,
+        loop: true,
+        showCursor: true,
+        cursorChar: "|",
+      });
+    };
+
+    loadTyped();
+
+    return () => {
+      if (typed) typed.destroy();
+    };
   }, []);
 
   return (
@@ -56,9 +67,11 @@ function Hero() {
         className="hero-left"
         initial={{ x: -80, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.5 }}
       >
-        <span className="hero-tag">👋 Welcome to my Portfolio</span>
+        <span className="hero-tag">
+          👋 Welcome to my Portfolio
+        </span>
 
         <h1>
           I'm <span>Vignesh Sekar</span>
@@ -68,14 +81,14 @@ function Hero() {
           <span ref={typedRef}></span>
         </h2>
 
-       <p className="description">
-        Passionate Full Stack Developer building modern MERN web
-        applications with clean UI, responsive design, and seamless
-        user experiences.
-      </p>
+        <p className="description">
+          Passionate Full Stack Developer building modern MERN web
+          applications with clean UI, responsive design, and seamless
+          user experiences.
+        </p>
 
         <div className="hero-buttons">
-            <a
+          <a
             href="/ATS_SDE_Resume.pdf"
             download="Vignesh_Resume.pdf"
             aria-label="Download Resume"
@@ -84,7 +97,7 @@ function Hero() {
             Resume
           </a>
 
-            <Link
+          <Link
             to="contact"
             spy
             smooth
@@ -121,15 +134,18 @@ function Hero() {
         className="hero-right"
         initial={{ x: 80, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.5 }}
       >
         <div className="image-circle">
-        <img
-          src={Profile}
-          alt="Portrait of Vignesh Sekar"
-          loading="eager"
-          decoding="async"
-        />
+          <img
+            src={Profile}
+            alt="Portrait of Vignesh Sekar"
+            width="420"
+            height="420"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+          />
         </div>
       </motion.div>
     </section>

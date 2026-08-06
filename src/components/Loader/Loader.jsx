@@ -1,3 +1,4 @@
+import { memo } from "react";
 import "./Loader.css";
 import { motion } from "framer-motion";
 import Icon2 from "../../assets/image/Icon2.webp";
@@ -5,45 +6,43 @@ import Icon2 from "../../assets/image/Icon2.webp";
 function Loader() {
   return (
     <div className="loader">
-
-      {/* VS Logo */}
       <motion.img
-    
         src={Icon2}
-        alt="Icon2"
+        alt="Vignesh Sekar Logo"
         className="loader-logo"
-        initial={{ scale: 0, opacity: 0 }}
+        width="120"
+        height="120"
+        loading="eager"
+        decoding="async"
+        initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{
-          duration: 0.8,
-          type: "spring",
+          duration: 0.5,
         }}
       />
 
-      {/* Portfolio Text */}
       <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{
-          delay: 0.6,
-          duration: 0.6,
+          delay: 0.3,
+          duration: 0.4,
         }}
       >
         VIGNESH SEKAR
       </motion.h2>
 
-      {/* Loading Line */}
       <motion.div
         className="loading-bar"
         initial={{ width: 0 }}
         animate={{ width: "220px" }}
         transition={{
-          duration: 2.5,
+          duration: 1.2,
+          ease: "easeOut",
         }}
       />
-
     </div>
   );
 }
 
-export default Loader;
+export default memo(Loader);

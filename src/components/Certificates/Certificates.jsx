@@ -1,4 +1,5 @@
 import "./Certificates.css";
+import { memo, useMemo } from "react";
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
@@ -6,42 +7,43 @@ import WebDevelopment from "../../assets/certificates/Training_Certificate.webp"
 import SpokenTutorial from "../../assets/certificates/CSS_Certificate.webp";
 import NationalConference from "../../assets/certificates/Conference_Certificate.webp";
 
-const certificates = [
-
-  {
-    title: "Web Development Internship",
-    image: WebDevelopment,
-    issuer: "Krutanic Solutions",
-    link: WebDevelopment,
-  },
-
-  {
-    title: "Spoken Tutorial - CSS Training",
-    image: SpokenTutorial,
-    issuer: "Spoken Tutorial Project, IIT Bombay",
-    link: SpokenTutorial,
-  },
-  
-  {
-    title: "National Conference on Advanced Science",
-    image: NationalConference,
-    issuer: "INFO Institute of Engineering",
-    link: NationalConference,
-  },
-];
-
 function Certificates() {
+  const certificates = useMemo(
+    () => [
+      {
+        title: "Web Development Internship",
+        image: WebDevelopment,
+        issuer: "Krutanic Solutions",
+        link: WebDevelopment,
+      },
+      {
+        title: "Spoken Tutorial - CSS Training",
+        image: SpokenTutorial,
+        issuer: "Spoken Tutorial Project, IIT Bombay",
+        link: SpokenTutorial,
+      },
+      {
+        title: "National Conference on Advanced Science",
+        image: NationalConference,
+        issuer: "INFO Institute of Engineering",
+        link: NationalConference,
+      },
+    ],
+    []
+  );
+
   return (
-              <section
-            className="certificates"
-            id="certificates"
-            aria-labelledby="certificates-heading"
-            >
+    <section
+      className="certificates"
+      id="certificates"
+      aria-labelledby="certificates-heading"
+    >
       <div className="certificates-container">
         <motion.h2
           id="certificates-heading"
-          initial={{ opacity: 0, y: -40 }}
+          initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
         >
           Certificates
@@ -52,21 +54,23 @@ function Certificates() {
             <motion.div
               key={certificate.title}
               className="certificate-card"
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{
-                delay: index * 0.15,
-                duration: 0.5,
+                delay: index * 0.1,
+                duration: 0.4,
               }}
               viewport={{ once: true }}
               whileHover={{
-                y: -10,
-                scale: 1.02,
+                y: -6,
+                scale: 1.01,
               }}
             >
-                <img
+              <img
                 src={certificate.image}
                 alt={`${certificate.title} certificate`}
+                width="500"
+                height="350"
                 loading="lazy"
                 decoding="async"
               />
@@ -76,14 +80,15 @@ function Certificates() {
 
                 <p>{certificate.issuer}</p>
 
-               <a
-                href={certificate.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`View ${certificate.title}`}
-              >
-                View Certificate <FaExternalLinkAlt aria-hidden="true" />
-              </a>
+                <a
+                  href={certificate.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`View ${certificate.title}`}
+                >
+                  View Certificate{" "}
+                  <FaExternalLinkAlt aria-hidden="true" />
+                </a>
               </div>
             </motion.div>
           ))}
@@ -93,4 +98,4 @@ function Certificates() {
   );
 }
 
-export default Certificates;
+export default memo(Certificates);

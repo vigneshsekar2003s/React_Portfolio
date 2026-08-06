@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { memo, useRef, useState } from "react";
 import "./Contact.css";
 import { motion } from "framer-motion";
 import {
@@ -12,34 +12,34 @@ import {
 import emailjs from "@emailjs/browser";
 
 function Contact() {
-  const form = useRef();
-
+  const form = useRef(null);
   const [success, setSuccess] = useState("");
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm(
+    try {
+      await emailjs.sendForm(
         "service_h8i0z6c",
         "template_9nfpjs3",
         form.current,
         "MI9FWtC8mRssQXekj"
-      )
-  
-      .then(() => {
+      );
+
       form.current.reset();
       setSuccess("Message sent successfully!");
 
       setTimeout(() => {
         setSuccess("");
       }, 3000);
-    })
-    .catch((error) => {
-      console.error("EmailJS Error:", error);
+    } catch (error) {
+      console.error(error);
       setSuccess("Failed to send message.");
-    });
 
+      setTimeout(() => {
+        setSuccess("");
+      }, 3000);
+    }
   };
 
   return (
@@ -51,29 +51,27 @@ function Contact() {
       <div className="contact-container">
         <motion.h2
           id="contact-heading"
-          initial={{ opacity: 0, y: -40 }}
+          initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
         >
           Contact Me
         </motion.h2>
 
         <div className="contact-wrapper">
-          {/* Left Side */}
-
           <motion.div
             className="contact-info"
-            initial={{ opacity: 0, x: -60 }}
+            initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             viewport={{ once: true }}
           >
             <h3>Let's Connect 👋</h3>
 
             <p>
-              I'm always interested in Internships, Full-time roles, and
-              exciting projects.
+              I'm always interested in internships, full-time roles,
+              and exciting projects.
             </p>
 
             <div className="info-card">
@@ -112,15 +110,13 @@ function Contact() {
             </div>
           </motion.div>
 
-          {/* Right Side */}
-
           <motion.form
             ref={form}
             onSubmit={sendEmail}
             className="contact-form"
-            initial={{ opacity: 0, x: 60 }}
+            initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             viewport={{ once: true }}
           >
             <input
@@ -148,18 +144,21 @@ function Contact() {
 
             <textarea
               name="message"
-              rows={6}
+              rows="6"
               placeholder="Your Message"
               required
             />
 
             <button type="submit">
-            <FaPaperPlane aria-hidden="true" />
-            Send Message
-          </button>
+              <FaPaperPlane aria-hidden="true" />
+              Send Message
+            </button>
 
-          {success && <p className="success-message">{success}</p>}
-
+            {success && (
+              <p className="success-message">
+                {success}
+              </p>
+            )}
           </motion.form>
         </div>
       </div>
@@ -167,4 +166,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default memo(Contact);

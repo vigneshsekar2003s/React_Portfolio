@@ -1,5 +1,10 @@
+import { memo } from "react";
 import "./Footer.css";
-import { FaGithub, FaLinkedin, FaArrowUp } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaArrowUp,
+} from "react-icons/fa";
 
 function Footer() {
   const scrollToTop = () => {
@@ -11,7 +16,6 @@ function Footer() {
 
   return (
     <footer className="footer">
-
       <div className="footer-container">
 
         <h2>Vignesh Sekar</h2>
@@ -21,48 +25,42 @@ function Footer() {
         </p>
 
         <div className="footer-links">
-
           <a href="#home">Home</a>
-
           <a href="#about">About</a>
-
           <a href="#skills">Skills</a>
-
           <a href="#projects">Projects</a>
-
           <a href="#certificates">Certificates</a>
-
           <a href="#experience">Experience</a>
-
           <a href="#contact">Contact</a>
-
         </div>
 
         <div className="footer-social">
-
           <a
             href="https://github.com/vigneshsekar2003s"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
           >
-            <FaGithub />
+            <FaGithub aria-hidden="true" />
           </a>
 
           <a
-            href="https://www.linkedin.com/in/vignesh-sekar-1526bb26a?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B6B78TO5fTEqbcXTip%2BSLDQ%3D%3D"
+            href="https://www.linkedin.com/in/vignesh-sekar-1526bb26a"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
           >
-            <FaLinkedin />
+            <FaLinkedin aria-hidden="true" />
           </a>
-
         </div>
 
         <button
           className="top-btn"
           onClick={scrollToTop}
+          type="button"
+          aria-label="Scroll to top"
         >
-          <FaArrowUp />
+          <FaArrowUp aria-hidden="true" />
         </button>
 
         <p className="copyright">
@@ -70,9 +68,8 @@ function Footer() {
         </p>
 
       </div>
-
     </footer>
   );
 }
 
-export default Footer;
+export default memo(Footer);

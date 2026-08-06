@@ -1,38 +1,63 @@
 import "./Projects.css";
 import { motion } from "framer-motion";
+import { memo, useMemo } from "react";
 import { FaGithub } from "react-icons/fa";
+
 import ExpenseTracker from "../../assets/projects/Expense-Tracker.webp";
 import CRM from "../../assets/projects/CRM_Project.webp";
 import schedulingApp from "../../assets/projects/ST_Scheduling.webp";
 
-const projects = [
-  {
-    title: "Smart-Time Scheduling App",
-    image: schedulingApp,
-    description:
-      "A responsive time scheduling application built with React and Framer Motion.",
-    technologies: ["React", "Tailwind CSS", "MongoDB", "Express.js", "Framer Motion"],
-    github: "https://github.com/yourusername/scheduling-app",
-  },
-  {
-    title: "Expense Tracker App",
-    image: ExpenseTracker,
-    description:
-      "Expense tracking application with budgeting features.",
-    technologies: ["React", "MongoDB", "Node.js", "Express.js", "REST APIs"],
-    github: "https://github.com/vigneshsekar2003s/Frontend_ExpenseApp",
-  },
-  {
-    title: "Customer-Relationship Management App",
-    image: CRM,
-    description:
-      "CRM application for managing customer interactions and relationships.",
-    technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS", "REST APIs"],
-    github: "https://github.com/vigneshsekar2003s/CRM_Frontend",
-  },
-];
-
 function Projects() {
+  const projects = useMemo(
+    () => [
+      {
+        title: "Smart-Time Scheduling App",
+        image: schedulingApp,
+        description:
+          "A responsive time scheduling application built with React and Framer Motion.",
+        technologies: [
+          "React",
+          "Tailwind CSS",
+          "MongoDB",
+          "Express.js",
+          "Framer Motion",
+        ],
+        github: "https://github.com/yourusername/scheduling-app",
+      },
+      {
+        title: "Expense Tracker App",
+        image: ExpenseTracker,
+        description:
+          "Expense tracking application with budgeting features.",
+        technologies: [
+          "React",
+          "MongoDB",
+          "Node.js",
+          "Express.js",
+          "REST APIs",
+        ],
+        github:
+          "https://github.com/vigneshsekar2003s/Frontend_ExpenseApp",
+      },
+      {
+        title: "Customer-Relationship Management App",
+        image: CRM,
+        description:
+          "CRM application for managing customer interactions and relationships.",
+        technologies: [
+          "React",
+          "Node.js",
+          "MongoDB",
+          "Tailwind CSS",
+          "REST APIs",
+        ],
+        github:
+          "https://github.com/vigneshsekar2003s/CRM_Frontend",
+      },
+    ],
+    []
+  );
+
   return (
     <section
       className="projects"
@@ -41,8 +66,10 @@ function Projects() {
     >
       <div className="projects-container">
         <motion.h2
-          initial={{ opacity: 0, y: -40 }}
+          id="projects-heading"
+          initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
         >
           My Projects
@@ -53,18 +80,20 @@ function Projects() {
             <motion.div
               key={project.title}
               className="project-card"
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{
-                delay: index * 0.15,
-                duration: 0.5,
+                delay: index * 0.1,
+                duration: 0.4,
               }}
               viewport={{ once: true }}
-              whileHover={{ y: -10 }}
+              whileHover={{ y: -6 }}
             >
               <img
                 src={project.image}
-                alt={`${project.title} project screenshot`}
+                alt={`${project.title} screenshot`}
+                width="500"
+                height="300"
                 loading="lazy"
                 decoding="async"
               />
@@ -81,13 +110,14 @@ function Projects() {
                 </div>
 
                 <div className="project-links">
-                 <a
+                  <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`View ${project.title} on GitHub`}
                   >
-                    <FaGithub aria-hidden="true" /> GitHub
+                    <FaGithub aria-hidden="true" />
+                    {" "}GitHub
                   </a>
                 </div>
               </div>
@@ -99,4 +129,4 @@ function Projects() {
   );
 }
 
-export default Projects;
+export default memo(Projects);

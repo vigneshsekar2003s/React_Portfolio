@@ -1,8 +1,8 @@
 import "./Counter.css";
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, memo } from "react";
 
-function CounterItem({ end, suffix, title }) {
+const CounterItem = memo(function CounterItem({ end, suffix, title }) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
   const started = useRef(false);
@@ -14,7 +14,7 @@ function CounterItem({ end, suffix, title }) {
 
         started.current = true;
 
-        const duration = 2000;
+        const duration = 1200; // reduced from 2000ms
         const startTime = performance.now();
 
         function animate(currentTime) {
@@ -24,15 +24,13 @@ function CounterItem({ end, suffix, title }) {
 
           if (progress < 1) {
             requestAnimationFrame(animate);
-          } else {
-            setCount(end);
           }
         }
 
         requestAnimationFrame(animate);
       },
       {
-        threshold: 0.4,
+        threshold: 0.3,
       }
     );
 
@@ -45,9 +43,9 @@ function CounterItem({ end, suffix, title }) {
     <motion.div
       ref={ref}
       className="counter-card"
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.4 }}
       viewport={{ once: true }}
     >
       <h2>
@@ -58,38 +56,22 @@ function CounterItem({ end, suffix, title }) {
       <p>{title}</p>
     </motion.div>
   );
-}
+});
 
 function Counter() {
   const counters = [
-    {
-      end: 10,
-      suffix: "+",
-      title: "Projects",
-    },
-    {
-      end: 8,
-      suffix: "+",
-      title: "Certificates",
-    },
-    {
-      end: 16,
-      suffix: "+",
-      title: "Technologies",
-    },
-    {
-      end: 2,
-      suffix: "",
-      title: "Internships",
-    },
+    { end: 10, suffix: "+", title: "Projects" },
+    { end: 8, suffix: "+", title: "Certificates" },
+    { end: 16, suffix: "+", title: "Technologies" },
+    { end: 2, suffix: "", title: "Internships" },
   ];
 
   return (
     <section className="counter-section">
       <div className="counter-container">
-        {counters.map((item, index) => (
+        {counters.map((item) => (
           <CounterItem
-            key={index}
+            key={item.title}
             end={item.end}
             suffix={item.suffix}
             title={item.title}
@@ -100,4 +82,4 @@ function Counter() {
   );
 }
 
-export default Counter;
+export default memo(Counter);

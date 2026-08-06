@@ -1,5 +1,5 @@
 import "./ParticlesBackground.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, memo } from "react";
 import Particles from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 
@@ -32,46 +32,53 @@ function ParticlesBackground() {
           },
         },
 
-        fpsLimit: 60,
+        detectRetina: false,
+
+        fpsLimit: 30,
 
         particles: {
           number: {
-            value: 60,
+            value: 25,
+            density: {
+              enable: true,
+              area: 1000,
+            },
           },
 
           color: {
             value: "#00e5ff",
           },
 
+          opacity: {
+            value: 0.2,
+          },
+
+          size: {
+            value: {
+              min: 1,
+              max: 2.5,
+            },
+          },
+
           links: {
             enable: true,
+            distance: 120,
             color: "#00e5ff",
-            distance: 150,
-            opacity: 0.2,
+            opacity: 0.15,
             width: 1,
           },
 
           move: {
             enable: true,
-            speed: 1,
-          },
-
-          opacity: {
-            value: 0.3,
-          },
-
-          size: {
-            value: {
-              min: 2,
-              max: 4,
+            speed: 0.5,
+            outModes: {
+              default: "bounce",
             },
           },
         },
-
-        detectRetina: true,
       }}
     />
   );
 }
 
-export default ParticlesBackground;
+export default memo(ParticlesBackground);

@@ -1,3 +1,4 @@
+import { memo } from "react";
 import "./ScrollProgress.css";
 import { motion, useScroll } from "framer-motion";
 
@@ -14,4 +15,4 @@ function ScrollProgress() {
   );
 }
 
-export default ScrollProgress;
+export default memo(ScrollProgress);
