@@ -106,16 +106,13 @@ function Hero() {
             Resume
           </a>
 
-          <Link
-            to="contact"
-            spy
-            smooth
-            duration={600}
-            offset={-70}
+            <a
+            href="#contact"
             className="hire-btn"
-          >
+            aria-label="Hire Me"
+            >
             💼 Hire Me
-          </Link>
+          </a>
 
           <a
             href="https://github.com/vigneshsekar2003s"

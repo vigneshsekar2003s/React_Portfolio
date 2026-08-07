@@ -1,6 +1,5 @@
 import "./Navbar.css";
-import { useState, useContext, useMemo, memo } from "react";
-import { Link } from "react-scroll";
+import { useState, useContext, memo } from "react";
 import { motion } from "framer-motion";
 import {
   FaBars,
@@ -11,22 +10,19 @@ import {
 
 import { ThemeContext } from "../../context/ThemeContext";
 
+const navItems = [
+  "home",
+  "about",
+  "skills",
+  "projects",
+  "certificates",
+  "experience",
+  "contact",
+];
+
 function Navbar() {
   const [menu, setMenu] = useState(false);
   const { theme, toggleTheme } = useContext(ThemeContext);
-
-  const navItems = useMemo(
-    () => [
-      "home",
-      "about",
-      "skills",
-      "projects",
-      "certificates",
-      "experience",
-      "contact",
-    ],
-    []
-  );
 
   const formatLabel = (text) =>
     text.charAt(0).toUpperCase() + text.slice(1);
@@ -36,7 +32,10 @@ function Navbar() {
       className="navbar"
       initial={{ y: -80 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.4 }}
+      transition={{
+        duration: 0.4,
+        ease: "easeOut",
+      }}
     >
       {/* Logo */}
       <h1 className="logo">PORTFOLIO</h1>
@@ -45,17 +44,12 @@ function Navbar() {
       <ul className={menu ? "nav-links active" : "nav-links"}>
         {navItems.map((item) => (
           <li key={item}>
-            <Link
-              activeClass="active"
-              to={item}
-              spy
-              smooth
-              duration={400}
-              offset={-70}
+            <a
+              href={`#${item}`}
               onClick={() => setMenu(false)}
             >
               {formatLabel(item)}
-            </Link>
+            </a>
           </li>
         ))}
       </ul>
