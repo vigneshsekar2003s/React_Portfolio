@@ -15,13 +15,13 @@ import {
 
 import Profile from "../../assets/image/Profile.webp";
 
-<h2 className="hero-role">
-  <span>Frontend Developer</span>
-  <span>React Developer</span>
-  <span>UI Designer</span>
-  <span>Problem Solver</span>
-  <span>Full Stack Developer</span>
-</h2>
+const roles = [
+  "Frontend Developer",
+  "React Developer",
+  "UI Designer",
+  "Problem Solver",
+  "Full Stack Developer",
+];
 
 function Hero() {
   const typedRef = useRef(null);
