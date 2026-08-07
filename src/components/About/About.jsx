@@ -14,7 +14,9 @@ function About() {
       aria-labelledby="about-heading"
     >
       <div className="about-content">
-        <h2 id="about-heading">About Me</h2>
+        <h2 id="about-heading">
+          About Me
+        </h2>
 
         <p>
           I'm <span>Vignesh Sekar</span>, a passionate Software Developer
@@ -24,35 +26,41 @@ function About() {
         </p>
 
         <div className="about-cards">
-          <div className="card">
+          <article className="card">
             <FaUserGraduate
               className="icon"
               aria-hidden="true"
             />
-            <h3>Education</h3>
-            <p>B.E. Computer Science & Engineering</p>
-          </div>
 
-          <div className="card">
+            <h3>Education</h3>
+
+            <p>B.E. Computer Science & Engineering</p>
+          </article>
+
+          <article className="card">
             <FaLaptopCode
               className="icon"
               aria-hidden="true"
             />
-            <h3>Skills</h3>
-            <p>Java • JavaScript • C • Python</p>
-          </div>
 
-          <div className="card">
+            <h3>Skills</h3>
+
+            <p>Java • JavaScript • C • Python</p>
+          </article>
+
+          <article className="card">
             <FaBriefcase
               className="icon"
               aria-hidden="true"
             />
+
             <h3>Goal</h3>
+
             <p>
               Become a Full Stack Developer and build impactful
               applications.
             </p>
-          </div>
+          </article>
         </div>
       </div>
     </section>

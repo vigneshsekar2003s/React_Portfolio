@@ -30,12 +30,15 @@ function Experience() {
             const Icon = item.icon;
 
             return (
-              <div
+              <article
                 key={item.title}
                 className="timeline-item"
               >
-                <div className="timeline-icon">
-                  <Icon aria-hidden="true" />
+                <div
+                  className="timeline-icon"
+                  aria-hidden="true"
+                >
+                  <Icon />
                 </div>
 
                 <div className="timeline-content">
@@ -43,11 +46,13 @@ function Experience() {
 
                   <h4>{item.company}</h4>
 
-                  <span>{item.duration}</span>
+                  <time dateTime="2025-03/2025-06">
+                    {item.duration}
+                  </time>
 
                   <p>{item.description}</p>
                 </div>
-              </div>
+              </article>
             );
           })}
         </div>

@@ -41,7 +41,7 @@ function Certificates() {
 
         <div className="certificate-grid">
           {certificates.map((certificate) => (
-            <div
+            <article
               key={certificate.title}
               className="certificate-card"
             >
@@ -53,6 +53,7 @@ function Certificates() {
                 loading="lazy"
                 decoding="async"
                 fetchPriority="low"
+                draggable="false"
               />
 
               <div className="certificate-content">
@@ -64,13 +65,13 @@ function Certificates() {
                   href={certificate.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`View ${certificate.title}`}
+                  aria-label={`View ${certificate.title} certificate`}
                 >
                   View Certificate{" "}
                   <FaExternalLinkAlt aria-hidden="true" />
                 </a>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>
