@@ -75,8 +75,8 @@
 }
 
 .image-circle {
-  width: 380px;
-  height: 380px;
+  width: 420px;
+  height: 420px;
   border-radius: 50%;
   border: 5px solid var(--accent);
   overflow: hidden;

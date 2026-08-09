@@ -74,7 +74,7 @@ function Hero() {
         initial={{ x: -60, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{
-          duration: 0.45,
+          duration: 0.25,
           ease: "easeOut",
         }}
       >
@@ -140,7 +140,7 @@ function Hero() {
         initial={{ x: 60, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{
-          duration: 0.45,
+          duration: 0.25,
           ease: "easeOut",
         }}
       >
