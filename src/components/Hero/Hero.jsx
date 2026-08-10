@@ -8,6 +8,8 @@ import {
   FaDownload,
 } from "react-icons/fa";
 
+import Profile from "../../assets/image/Profile.webp";
+
 const roles = [
   "Frontend Developer",
   "React Developer",
@@ -119,11 +121,11 @@ function Hero() {
         </div>
       </motion.div>
 
-      {/* Right - LCP Image */}
+      {/* Right */}
       <div className="hero-right">
         <div className="image-circle">
           <img
-            src="/Profile.webp"
+            src={Profile}
             alt="Portrait of Vignesh Sekar"
             width="420"
             height="420"
