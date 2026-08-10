@@ -1,16 +1,11 @@
 import "./Hero.css";
 import { memo, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-scroll";
 
 import {
   FaGithub,
   FaLinkedin,
   FaDownload,
-  FaReact,
-  FaHtml5,
-  FaCss3Alt,
-  FaJs,
 } from "react-icons/fa";
 
 import Profile from "../../assets/image/Profile.webp";
@@ -55,18 +50,10 @@ function Hero() {
   }, []);
 
   return (
-    <section
-      className="hero"
-      id="home"
-      aria-labelledby="hero-heading"
-    >
+    <section className="hero" id="home">
+
       {/* Floating Icons */}
-      <div className="floating-icons" aria-hidden="true">
-        <FaReact className="react" />
-        <FaHtml5 className="html" />
-        <FaCss3Alt className="css" />
-        <FaJs className="js" />
-      </div>
+      {/* Keep your existing floating icons here */}
 
       {/* Left */}
       <motion.div
@@ -106,11 +93,11 @@ function Hero() {
             Resume
           </a>
 
-            <a
+          <a
             href="#contact"
             className="hire-btn"
             aria-label="Hire Me"
-            >
+          >
             💼 Hire Me
           </a>
 
@@ -134,16 +121,8 @@ function Hero() {
         </div>
       </motion.div>
 
-      {/* Right */}
-      <motion.div
-        className="hero-right"
-        initial={{ x: 60, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{
-          duration: 0.25,
-          ease: "easeOut",
-        }}
-      >
+      {/* Right - No Framer Motion on LCP image */}
+      <div className="hero-right">
         <div className="image-circle">
           <img
             src={Profile}
@@ -155,7 +134,8 @@ function Hero() {
             decoding="async"
           />
         </div>
-      </motion.div>
+      </div>
+
     </section>
   );
 }
