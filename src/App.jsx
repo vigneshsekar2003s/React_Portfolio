@@ -27,6 +27,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [showParticles, setShowParticles] = useState(false);
 
+  // Remove loading delay
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
@@ -35,6 +36,7 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Load particles after the main page has rendered
   useEffect(() => {
     if (loading) return;
 
@@ -81,3 +83,5 @@ function App() {
     </>
   );
 }
+
+export default App;
