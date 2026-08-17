@@ -85,8 +85,8 @@ function Hero() {
 
         <div className="hero-buttons">
           <a
-            href="/ATS_SDE_Resume.pdf"
-            download="ATS_SDE_Resume.pdf"
+            href="/SDE_MERN_Resume.pdf"
+            download="SDE_MERN_Resume.pdf"
             aria-label="Download Resume"
           >
             <FaDownload aria-hidden="true" />
