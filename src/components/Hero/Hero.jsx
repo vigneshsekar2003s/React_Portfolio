@@ -8,8 +8,6 @@ import {
   FaDownload,
 } from "react-icons/fa";
 
-import Profile from "../../assets/image/Profile.webp";
-
 const roles = [
   "Frontend Developer",
   "React Developer",
@@ -52,9 +50,6 @@ function Hero() {
   return (
     <section className="hero" id="home">
 
-      {/* Floating Icons */}
-      {/* Keep your existing floating icons here */}
-
       {/* Left */}
       <motion.div
         className="hero-left"
@@ -78,16 +73,17 @@ function Hero() {
         </h2>
 
         <p className="description">
-          Passionate Full Stack Developer building modern MERN web
-          applications with clean UI, responsive design, and seamless
-          user experiences.
+          Vignesh Sekar is a Full Stack Developer building modern
+          React and MERN web applications with clean UI,
+          responsive design, and seamless user experiences.
         </p>
 
         <div className="hero-buttons">
+
           <a
             href="/SDE_MERN_Resume.pdf"
             download="SDE_MERN_Resume.pdf"
-            aria-label="Download Resume"
+            aria-label="Download Vignesh Sekar Resume"
           >
             <FaDownload aria-hidden="true" />
             Resume
@@ -96,7 +92,7 @@ function Hero() {
           <a
             href="#contact"
             className="hire-btn"
-            aria-label="Hire Me"
+            aria-label="Contact Vignesh Sekar"
           >
             💼 Hire Me
           </a>
@@ -105,7 +101,7 @@ function Hero() {
             href="https://github.com/vigneshsekar2003s"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="GitHub"
+            aria-label="Vignesh Sekar GitHub"
           >
             <FaGithub aria-hidden="true" />
           </a>
@@ -114,26 +110,32 @@ function Hero() {
             href="https://www.linkedin.com/in/vignesh-sekar-1526bb26a"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="LinkedIn"
+            aria-label="Vignesh Sekar LinkedIn"
           >
             <FaLinkedin aria-hidden="true" />
           </a>
+
         </div>
       </motion.div>
 
       {/* Right */}
       <div className="hero-right">
+
         <div className="image-circle">
+
           <img
-            src={Profile}
-            alt="Portrait of Vignesh Sekar"
+            src="/Profile-Vignesh-Sekar.webp"
+            alt="Vignesh Sekar - Full Stack Developer"
+            title="Vignesh Sekar"
             width="420"
             height="420"
             loading="eager"
             fetchPriority="high"
             decoding="async"
           />
+
         </div>
+
       </div>
 
     </section>
