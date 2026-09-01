@@ -3,39 +3,33 @@
   <head>
     <meta charset="UTF-8" />
 
+    <!-- Google Analytics -->
     <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-ZP0F7PF74H"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-ZP0F7PF74H"
     ></script>
 
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
       gtag("js", new Date());
       gtag("config", "G-ZP0F7PF74H");
     </script>
 
+    <!-- Responsive -->
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
 
+    <!-- Google Search Console -->
     <meta
       name="google-site-verification"
       content="YJgVCjTGOi7maeF1Mvg7cz6Am0TVai-jS_xOvESD7gg"
-    />
-
-    <!-- Favicon -->
-    <link
-      rel="icon"
-      type="image/webp"
-      href="/Icon2.webp"
-    />
-
-    <!-- Canonical URL -->
-    <link
-      rel="canonical"
-      href="https://vignesh-livid-nu.vercel.app/"
     />
 
     <!-- Primary SEO -->
@@ -48,7 +42,7 @@
 
     <meta
       name="keywords"
-      content="Vignesh Sekar, Vignesh Sekar Developer, Vignesh Sekar Portfolio, Vignesh Sekar Full Stack Developer, Vignesh Sekar Software Developer"
+      content="Vignesh Sekar, Vignesh Sekar Portfolio, Vignesh Sekar Developer, Vignesh Sekar Full Stack Developer, Vignesh Sekar Software Developer, Full Stack Developer, Software Developer, React Developer, MERN Stack Developer"
     />
 
     <meta
@@ -58,12 +52,25 @@
 
     <meta
       name="robots"
-      content="index, follow, max-image-preview:large"
+      content="index, follow, max-image-preview:large, max-snippet:-1"
     />
 
     <meta
       name="theme-color"
       content="#06b6d4"
+    />
+
+    <!-- Canonical -->
+    <link
+      rel="canonical"
+      href="https://vignesh-livid-nu.vercel.app/"
+    />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/webp"
+      href="/Icon2.webp"
     />
 
     <!-- Open Graph -->
@@ -79,7 +86,7 @@
 
     <meta
       property="og:description"
-      content="Vignesh Sekar - Full Stack Developer specializing in React, MERN Stack, Node.js, Python and modern web applications."
+      content="Vignesh Sekar - Full Stack Developer and Software Developer building modern web applications using React, MERN Stack, Node.js and Python."
     />
 
     <meta
@@ -92,7 +99,6 @@
       content="Vignesh Sekar"
     />
 
-    <!-- Actual profile image -->
     <meta
       property="og:image"
       content="https://vignesh-livid-nu.vercel.app/profile-vignesh-sekar.webp"
@@ -101,6 +107,11 @@
     <meta
       property="og:image:alt"
       content="Vignesh Sekar - Full Stack Developer"
+    />
+
+    <meta
+      property="og:image:type"
+      content="image/webp"
     />
 
     <!-- Twitter / X -->
@@ -116,7 +127,7 @@
 
     <meta
       name="twitter:description"
-      content="Vignesh Sekar - Full Stack Developer Portfolio"
+      content="Vignesh Sekar - Full Stack Developer and Software Developer Portfolio"
     />
 
     <meta
@@ -129,45 +140,64 @@
       content="Vignesh Sekar - Full Stack Developer"
     />
 
-    <!-- Schema.org -->
+    <!-- Structured Data -->
     <script type="application/ld+json">
-      {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Vignesh Sekar",
-  "url": "https://vignesh-livid-nu.vercel.app/",
-  "image": [
-    "https://vignesh-livid-nu.vercel.app/profile-vignesh-sekar.webp",
-    "https://vignesh-livid-nu.vercel.app/vignesh.png"
-  ],
-  "jobTitle": "Software Developer",
-  "description": "Vignesh Sekar is a Full Stack Developer and Software Developer passionate about building modern web applications, solving problems, and creating impactful digital experiences.",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://vignesh-livid-nu.vercel.app/"
-  },
-  "knowsAbout": [
-    "React",
-    "JavaScript",
-    "Node.js",
-    "Express.js",
-    "MongoDB",
-    "Python",
-    "Java",
-    "HTML",
-    "CSS",
-    "Tailwind CSS",
-    "Git",
-    "REST APIs",
-    "MERN Stack"
-  ],
-  "sameAs": [
-    "https://github.com/vigneshsekar2003s",
-    "https://www.linkedin.com/in/vignesh-sekar-1526bb26a"
-  ]
-}
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://vignesh-livid-nu.vercel.app/#person",
+          "name": "Vignesh Sekar",
+          "url": "https://vignesh-livid-nu.vercel.app/",
+          "image": "https://vignesh-livid-nu.vercel.app/profile-vignesh-sekar.webp",
+          "jobTitle": "Software Developer",
+          "description": "Vignesh Sekar is a Full Stack Developer and Software Developer passionate about building modern web applications, solving problems, and creating impactful digital experiences.",
+          "knowsAbout": [
+            "React",
+            "JavaScript",
+            "Node.js",
+            "Express.js",
+            "MongoDB",
+            "Python",
+            "Java",
+            "HTML",
+            "CSS",
+            "Tailwind CSS",
+            "Git",
+            "REST APIs",
+            "MERN Stack"
+          ],
+          "sameAs": [
+            "https://github.com/vigneshsekar2003s",
+            "https://www.linkedin.com/in/vignesh-sekar-1526bb26a"
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://vignesh-livid-nu.vercel.app/#webpage",
+          "url": "https://vignesh-livid-nu.vercel.app/",
+          "name": "Vignesh Sekar",
+          "about": {
+            "@id": "https://vignesh-livid-nu.vercel.app/#person"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://vignesh-livid-nu.vercel.app/profile-vignesh-sekar.webp"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://vignesh-livid-nu.vercel.app/#website",
+          "url": "https://vignesh-livid-nu.vercel.app/",
+          "name": "Vignesh Sekar",
+          "publisher": {
+            "@id": "https://vignesh-livid-nu.vercel.app/#person"
+          }
+        }
+      ]
+    }
     </script>
-
   </head>
 
   <body>

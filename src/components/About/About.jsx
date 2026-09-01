@@ -19,7 +19,7 @@ function About() {
         <div className="about-image">
           <img
             src="/vignesh.png"
-            alt="Vignesh Sekar - Full Stack Developer"
+            alt="Vignesh Sekar"
             width="400"
             height="400"
             loading="lazy"
