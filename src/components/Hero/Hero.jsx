@@ -107,7 +107,7 @@ function Hero() {
           </a>
 
           <a
-            href="https://www.linkedin.com/in/vignesh-sekar-1526bb26a"
+            href="https://www.linkedin.com/in/vignesh-sekar-073a60306"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Vignesh Sekar LinkedIn"
@@ -123,7 +123,7 @@ function Hero() {
         <div className="image-circle">
           <img
             src="/profile-vignesh-sekar.webp"
-            alt="Vignesh Sekar - Full Stack Developer"
+            alt="Vignesh Sekar"
             width="420"
             height="420"
             loading="eager"
