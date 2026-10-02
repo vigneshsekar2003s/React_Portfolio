@@ -9,11 +9,12 @@ import {
 } from "react-icons/fa";
 
 const roles = [
-  "Frontend Developer",
+  "Full Stack Developer",
+  "Web Developer",
   "React Developer",
+  "AI & ML Enthusiast",
   "UI Designer",
   "Problem Solver",
-  "Full Stack Developer",
 ];
 
 function Hero() {

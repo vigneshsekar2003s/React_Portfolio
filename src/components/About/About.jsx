@@ -18,10 +18,10 @@ function About() {
         {/* Profile Image */}
         <div className="about-image">
           <img
-            src="/vignesh.png"
-            alt="Vignesh Sekar"
-            width="400"
-            height="400"
+            src="/profile-vignesh-sekar.webp"
+            alt="Vignesh Sekar - Full Stack Developer"
+            width="420"
+            height="420"
             loading="lazy"
           />
         </div>
@@ -33,10 +33,10 @@ function About() {
           </h2>
 
           <p>
-            I'm <span>Vignesh Sekar</span>, a passionate Software Developer
-            who enjoys building modern, responsive, and interactive web
-            applications. I love solving problems and continuously learning
-            new technologies.
+          I'm <span>Vignesh Sekar</span>, a Computer Science graduate focused on
+          full-stack development, modern web applications, database-driven
+          solutions, responsive UI/UX design, REST API development, and practical
+          AI/ML learning.
           </p>
 
           <div className="about-cards">
