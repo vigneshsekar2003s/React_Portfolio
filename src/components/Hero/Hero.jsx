@@ -74,7 +74,7 @@ function Hero() {
         </h2>
 
         <p className="description">
-          Passionate Full Stack Developer building modern MERN web
+          Passionate Full Stack Developer building modern web
           applications with clean UI, responsive design, and seamless
           user experiences.
         </p>
