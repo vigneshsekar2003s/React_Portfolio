@@ -21,7 +21,7 @@ function Footer() {
         <h2>Vignesh Sekar</h2>
 
         <p>
-          Frontend Developer | React Developer | Full Stack Developer
+          Software Developer | Full Stack Developer | AI & ML Enthusiast
         </p>
 
         <div className="footer-links">
@@ -45,7 +45,7 @@ function Footer() {
           </a>
 
           <a
-            href="https://www.linkedin.com/in/vignesh-sekar-1526bb26a"
+            href="https://www.linkedin.com/in/vignesh-sekar-s"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"

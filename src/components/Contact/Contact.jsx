@@ -106,7 +106,7 @@ function Contact() {
               </a>
 
               <a
-                href="https://www.linkedin.com/in/vignesh-sekar-1526bb26a"
+                href="https://www.linkedin.com/in/vignesh-sekar-s"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
