@@ -2,9 +2,9 @@ import "./Projects.css";
 import { memo } from "react";
 import { FaGithub } from "react-icons/fa";
 
-import ExpenseTracker from "../../assets/projects/Expense-Tracker.webp";
-import CRM from "../../assets/projects/CRM_Project.webp";
 import SchedulingApp from "../../assets/projects/ST_Scheduling.webp";
+import CRM from "../../assets/projects/CRM_Project.webp";
+import ResumeAnalyzer from "../../assets/projects/AI-Resume_Analyzer.png"
 
 const projects = [
   {
@@ -19,23 +19,9 @@ const projects = [
       "Express.js",
       "Framer Motion",
     ],
-    github: "https://github.com/yourusername/scheduling-app",
+    github: "https://github.com/vigneshsekar2003s/SmartTime_client",
   },
-  {
-    title: "Expense Tracker App",
-    image: ExpenseTracker,
-    description:
-      "Expense tracking application with budgeting features.",
-    technologies: [
-      "React",
-      "MongoDB",
-      "Node.js",
-      "Express.js",
-      "REST APIs",
-    ],
-    github:
-      "https://github.com/vigneshsekar2003s/Frontend_ExpenseApp",
-  },
+
   {
     title: "Customer Relationship Management App",
     image: CRM,
@@ -51,6 +37,22 @@ const projects = [
     github:
       "https://github.com/vigneshsekar2003s/CRM_Frontend",
   },
+
+{
+  title: "AI Resume RAG Analyzer",
+  image: ResumeAnalyzer,
+  description:
+    "AI-powered resume analyzer using Python, Streamlit, and RAG for skill matching and resume improvement suggestions.",
+  technologies: [
+    "Python",
+    "Streamlit",
+    "RAG",
+    "Sentence Transformers",
+    "Groq API",
+  ],
+  github:
+    "https://github.com/vigneshsekar2003s/AI-Resume---RAG-Analyzer-",
+},
 ];
 
 function Projects() {
