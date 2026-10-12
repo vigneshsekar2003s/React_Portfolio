@@ -4,7 +4,7 @@ import { FaGithub } from "react-icons/fa";
 
 import SchedulingApp from "../../assets/projects/ST_Scheduling.webp";
 import CRM from "../../assets/projects/CRM_Project.webp";
-import ResumeAnalyzer from "../../assets/projects/AI-Resume_Analyzer.png"
+import ResumeAnalyzer from "../../assets/projects/AI-Resume_Analyzer.webp";
 
 const projects = [
   {

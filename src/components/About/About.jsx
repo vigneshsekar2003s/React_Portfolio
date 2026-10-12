@@ -18,10 +18,10 @@ function About() {
         {/* Profile Image */}
         <div className="about-image">
           <img
-            src="/vignesh.png"
+            src="/vignesh.webp"
             alt="Vignesh Sekar - Full Stack Developer"
-            width="420"
-            height="420"
+            width="500"
+            height="500"
             loading="lazy"
           />
         </div>
