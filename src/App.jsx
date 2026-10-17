@@ -1,11 +1,12 @@
+
 import { useEffect, useState, lazy, Suspense } from "react";
 
 import Loader from "./components/Loader/Loader";
 import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
+import LazySection from "./components/LazySection";
 
-// Lazy load heavy components
 const ParticlesBackground = lazy(() =>
   import("./components/ParticlesBackground/ParticlesBackground")
 );
@@ -23,52 +24,91 @@ const Experience = lazy(() =>
 const Contact = lazy(() => import("./components/Contact/Contact"));
 const Footer = lazy(() => import("./components/Footer/Footer"));
 
+function SectionFallback() {
+  return (
+    <div
+      className="section-loading-placeholder"
+      aria-hidden="true"
+    />
+  );
+}
+
 function App() {
   const [loading, setLoading] = useState(true);
   const [showParticles, setShowParticles] = useState(false);
 
-  // Remove loading delay
+  // Preserve the 2.5-second intro loader.
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const timer = window.setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 2500);
 
-    return () => clearTimeout(timer);
+    return () => window.clearTimeout(timer);
   }, []);
 
-  // Load particles after the main page has rendered
+  // Load decorative particles after the intro.
   useEffect(() => {
     if (loading) return;
 
-    const timer = setTimeout(() => {
+    const timer = window.setTimeout(() => {
       setShowParticles(true);
     }, 3000);
 
-    return () => clearTimeout(timer);
+    return () => window.clearTimeout(timer);
   }, [loading]);
-
-  if (loading) {
-    return <Loader />;
-  }
 
   return (
     <>
-      <ScrollProgress />
+      {loading && <Loader />}
 
+      <ScrollProgress />
       <Navbar />
 
       <main>
+        {/* Keep the hero available immediately. */}
         <Hero />
 
-        <Suspense fallback={null}>
-          <Counter />
-          <About />
-          <Skills />
-          <Projects />
-          <Certificates />
-          <Experience />
-          <Contact />
-        </Suspense>
+        <LazySection>
+          <Suspense fallback={<SectionFallback />}>
+            <Counter />
+          </Suspense>
+        </LazySection>
+
+        <LazySection>
+          <Suspense fallback={<SectionFallback />}>
+            <About />
+          </Suspense>
+        </LazySection>
+
+        <LazySection>
+          <Suspense fallback={<SectionFallback />}>
+            <Skills />
+          </Suspense>
+        </LazySection>
+
+        <LazySection>
+          <Suspense fallback={<SectionFallback />}>
+            <Projects />
+          </Suspense>
+        </LazySection>
+
+        <LazySection>
+          <Suspense fallback={<SectionFallback />}>
+            <Certificates />
+          </Suspense>
+        </LazySection>
+
+        <LazySection>
+          <Suspense fallback={<SectionFallback />}>
+            <Experience />
+          </Suspense>
+        </LazySection>
+
+        <LazySection>
+          <Suspense fallback={<SectionFallback />}>
+            <Contact />
+          </Suspense>
+        </LazySection>
       </main>
 
       <Suspense fallback={null}>
