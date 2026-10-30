@@ -11,6 +11,8 @@ import {
 import SchedulingApp from "../../assets/projects/ST_Scheduling.webp";
 import CRM from "../../assets/projects/CRM_Project.webp";
 import ResumeAnalyzer from "../../assets/projects/AI-Resume_Analyzer.webp";
+import ExpenseTracker from "../../assets/projects/Expense-Tracker.webp";
+import DocumentationGenerator from "../../assets/projects/AI-Document_Rag.webp";
 
 const projects = [
     {
@@ -60,6 +62,39 @@ const projects = [
     ],
     github:
       "https://github.com/vigneshsekar2003s/AI-Resume---RAG-Analyzer-",
+  },
+
+  {
+    title: "Expense Tracker App",
+    number: "04",
+    image: ExpenseTracker,
+    description:
+      "A simple and intuitive expense tracking application built with React and MongoDB.",
+    technologies: [
+      "React",
+      "MongoDB",
+      "Express.js",
+      "Chart.js",
+      "REST APIs"
+    ],
+    github:
+      "https://github.com/vigneshsekar2003s/Frontend_ExpenseApp",
+  },
+  {
+    title: "AI Documentation Generator",
+    number: "05",
+    image: DocumentationGenerator,
+    description:
+      "An AI-powered documentation generator using RAG and natural language processing.",
+    technologies: [
+      "Python",
+      "RAG",
+      "Transformers",
+      "Groq API",
+      "Streamlit"
+    ],
+    github:
+      "https://github.com/vigneshsekar2003s/Rag-chatbot",
   },
 ];
 
