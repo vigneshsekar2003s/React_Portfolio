@@ -102,7 +102,7 @@ function Hero() {
             href="https://github.com/vigneshsekar2003s"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Vignesh Sekar GitHub"
+            aria-label="Vignesh Sekar on GitHub"
           >
             <FaGithub aria-hidden="true" />
           </a>
@@ -111,7 +111,7 @@ function Hero() {
             href="https://www.linkedin.com/in/vignesh-sekar-s"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Vignesh Sekar LinkedIn"
+            aria-label="Vignesh Sekar on LinkedIn"
           >
             <FaLinkedin aria-hidden="true" />
           </a>
