@@ -495,3 +495,59 @@
     cursor: pointer;
     touch-action: manipulation;
 }
+
+
+/* Carousel indicator container */
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 20px;
+}
+
+/* Accessible touch target */
+
+.carousel-dot {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Visible small dot */
+
+.dot-indicator {
+  width: 10px;
+  height: 10px;
+  display: block;
+  border-radius: 50%;
+  background: #64748b;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* Active dot */
+
+.carousel-dot.active .dot-indicator {
+  background: #22d3ee;
+  transform: scale(1.3);
+}
+
+/* Keyboard accessibility */
+
+.carousel-dot:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 2px;
+}

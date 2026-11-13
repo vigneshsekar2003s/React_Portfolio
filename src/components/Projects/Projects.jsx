@@ -254,20 +254,22 @@ function CoverFlowProjects() {
               <FaChevronLeft />
             </button>
 
-            <div className="coverflow-indicators">
-              {projects.map((project, index) => (
-                <button
-                  key={project.title}
-                  type="button"
-                  className={
-                    activeIndex === index ? "active" : ""
-                  }
-                  onClick={() => setActiveIndex(index)}
-                  aria-label={`Show project ${index + 1}: ${project.title}`}
-                  aria-pressed={activeIndex === index}
-                />
-              ))}
-            </div>
+            <div className="carousel-dots">
+          {projects.map((project, index) => (
+            <button
+              key={project.title}
+              type="button"
+              className={`carousel-dot ${
+                activeIndex === index ? "active" : ""
+              }`}
+              aria-label={`Show project ${index + 1}: ${project.title}`}
+              aria-pressed={activeIndex === index}
+              onClick={() => setActiveIndex(index)}
+            >
+              <span className="dot-indicator" aria-hidden="true" />
+            </button>
+          ))}
+          </div>
 
             <button
               type="button"

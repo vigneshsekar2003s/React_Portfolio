@@ -146,18 +146,22 @@ function Certificates() {
             <FaChevronDown />
           </button>
 
-          <div className="vertical-slider-indicators">
-            {certificates.map((item, index) => (
-              <button
-                key={item.title}
-                type="button"
-                className={activeIndex === index ? "active" : ""}
-                onClick={() => setActiveIndex(index)}
-                aria-label={`Show ${item.title}`}
-                aria-pressed={activeIndex === index}
-              />
-            ))}
-          </div>
+          <div className="carousel-dots">
+        {certificates.map((certificate, index) => (
+          <button
+            key={certificate.title}
+            type="button"
+            className={`carousel-dot ${
+              activeIndex === index ? "active" : ""
+            }`}
+            aria-label={`Show ${certificate.title}`}
+            aria-pressed={activeIndex === index}
+            onClick={() => setActiveIndex(index)}
+          >
+            <span className="dot-indicator" aria-hidden="true" />
+          </button>
+        ))}
+      </div>
 
           <p className="certificate-counter" aria-live="polite">
             {String(activeIndex + 1).padStart(2, "0")} /{" "}
