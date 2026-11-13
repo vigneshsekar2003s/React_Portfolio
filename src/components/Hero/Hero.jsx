@@ -1,3 +1,4 @@
+
 import "./Hero.css";
 import { memo, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
@@ -22,28 +23,51 @@ function Hero() {
 
   useEffect(() => {
     let typed;
-    let mounted = true;
+    let cancelled = false;
+    let timeoutId;
+    let idleId;
 
     async function initTyped() {
-      const Typed = (await import("typed.js")).default;
+      try {
+        const { default: Typed } = await import("typed.js");
 
-      if (!mounted || !typedRef.current) return;
+        // Prevent initialization after component unmount
+        if (cancelled || !typedRef.current) return;
 
-      typed = new Typed(typedRef.current, {
-        strings: roles,
-        typeSpeed: 70,
-        backSpeed: 40,
-        backDelay: 1500,
-        loop: true,
-        showCursor: true,
-        cursorChar: "|",
-      });
+        typed = new Typed(typedRef.current, {
+          strings: roles,
+          typeSpeed: 70,
+          backSpeed: 40,
+          backDelay: 1500,
+          loop: true,
+          showCursor: true,
+          cursorChar: "|",
+        });
+      } catch (error) {
+        console.error("Unable to load Typed.js:", error);
+      }
     }
 
-    initTyped();
+    // Load Typed.js when the browser is idle
+    if ("requestIdleCallback" in window) {
+      idleId = window.requestIdleCallback(initTyped, {
+        timeout: 2000,
+      });
+    } else {
+      timeoutId = window.setTimeout(initTyped, 1200);
+    }
 
     return () => {
-      mounted = false;
+      cancelled = true;
+
+      if (idleId !== undefined) {
+        window.cancelIdleCallback?.(idleId);
+      }
+
+      if (timeoutId !== undefined) {
+        window.clearTimeout(timeoutId);
+      }
+
       typed?.destroy();
     };
   }, []);
@@ -69,8 +93,9 @@ function Hero() {
           I'm <span>Vignesh Sekar</span>
         </h1>
 
+        {/* Typed Text */}
         <h2>
-          <span ref={typedRef}></span>
+          <span ref={typedRef}>Full Stack Developer</span>
         </h2>
 
         <p className="description">
